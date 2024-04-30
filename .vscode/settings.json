@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/bak": true,
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/yano-customizer": true
+    },
+    "explorerExclude.backup": {}
+}
