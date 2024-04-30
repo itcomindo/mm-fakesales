@@ -18,6 +18,14 @@ function fakesales_assets() {
 
 	$suffix = fakesakes_is_devmode() ? '' : '.min';
 
+	$fks = count( carbon_get_theme_option( 'fks' ) );
+	if ( $fks > 1 ) {
+		// Load https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js.
+		wp_enqueue_style( 'slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), '1.9.0', 'all' );
+
+		wp_enqueue_script( 'slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array( 'jquery' ), '1.9.0', true );
+	}
+
 	wp_enqueue_style( 'fak-css', FAK_URL . 'assets/css/fak' . $suffix . '.css', array(), '1.0.0', 'all' );
 	wp_enqueue_script( 'fak-js', FAK_URL . 'assets/js/fak' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
 }
