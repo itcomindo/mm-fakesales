@@ -13,8 +13,24 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
  * FAK Container
  */
 function fak_container() {
-	$enable = true;
-	$fks    = count( carbon_get_theme_option( 'fks' ) );
+	$enable                = carbon_get_theme_option( 'fks_enable' );
+	$fks_disable_on_screen = carbon_get_theme_option( 'fks_disable_on_screen' );
+	if ( 767 === $fks_disable_on_screen ) {
+		$disabled_on = '767';
+	} elseif ( 480 === $fks_disable_on_screen ) {
+		$disabled_on = '480';
+	} else {
+		$disabled_on = 'false';
+	}
+
+	$position = carbon_get_theme_option( 'fks_position' );
+	if ( 'left' === $position ) {
+		$position = 'left';
+	} else {
+		$position = 'right';
+	}
+
+	$fks = count( carbon_get_theme_option( 'fks' ) );
 	if ( $fks > 1 ) {
 		$load_sclick    = 'data-fak-slide=true';
 		$duration_slick = 'data-fak-duration=' . carbon_get_theme_option( 'fks_duration' ) . '';
@@ -24,7 +40,7 @@ function fak_container() {
 	}
 	if ( true === $enable ) {
 		?>
-		<div id="fak">
+		<div id="fak" class="fak-position-<?php echo esc_html( $position ); ?>" data-fakdis="<?php echo esc_html( $disabled_on ); ?>">
 			<div id="fak-wr" <?php echo esc_attr( $load_sclick ) . ' ' . esc_html( $duration_slick ); ?>>
 				<?php
 				fak_content();

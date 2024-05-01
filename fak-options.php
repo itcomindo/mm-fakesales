@@ -19,6 +19,23 @@ function fak_options_fields() {
 	->add_fields(
 		array(
 
+			// checkbox to enable.
+			Field::make( 'checkbox', 'fks_enable', 'Enable' )
+			->set_option_value( 'yes' )
+			->set_default_value( true )
+			->set_help_text( 'Enable Fakesales' ),
+
+			// select to choose position bottom left or bottom right.
+			Field::make( 'select', 'fks_position', 'Position' )
+			->add_options(
+				array(
+					'left'  => 'Left',
+					'right' => 'Right',
+				)
+			)
+			->set_default_value( 'left' )
+			->set_help_text( 'Choose position' ),
+
 			// slide duration.
 			Field::make( 'text', 'fks_duration', 'Slide Duration' )
 			->set_attribute( 'type', 'number' )
@@ -47,6 +64,18 @@ function fak_options_fields() {
 
 				)
 			),
+
+			// select disable below screen width 767, 480.
+			Field::make( 'select', 'fks_disable_on_screen', 'Disable on Screen Width' )
+			->add_options(
+				array(
+					'767'  => '767px',
+					'480'  => '480px',
+					'none' => 'None',
+				)
+			)
+			->set_default_value( '767' )
+			->set_help_text( 'Disable on screen width below' ),
 		)
 	);
 }

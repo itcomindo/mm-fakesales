@@ -9,7 +9,6 @@
   max-width: calc(100% - 2rem);
   position: fixed;
   bottom: 3rem;
-  left: 1rem;
   background-color: var(--color-light-3);
   padding: 0;
   box-sizing: border-box;
@@ -20,6 +19,14 @@
   overflow: hidden;
   z-index: 888;
 }
+#fak.fak-position-left {
+  left: 1rem;
+}
+
+#fak.fak-position-right {
+  right: 1rem;
+}
+
 #fak div,
 #fak-ul {
   box-sizing: border-box;
@@ -97,4 +104,28 @@ h3.fak-head {
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+
+/**
+=========================
+* 767px
+* @todo 767px
+*=========================
+*/
+@media screen and (max-width: 767px) {
+  #fak[data-fakdis="767"] {
+    display: none;
+  }
+}
+
+/**
+=========================
+* 480px
+* @todo 480px
+*=========================
+*/
+@media screen and (max-width: 480px) {
+  #fak[data-fakdis="480"] {
+    display: none;
+  }
 }
